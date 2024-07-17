@@ -79,6 +79,22 @@ class LinkedList{
         }
     }
 
+    find(value){
+        let curNode = this.head;
+        for(let i = 0; i < this.counter; i++){
+            if(curNode.value === value){
+                return i;
+            }
+            else if(curNode.nextNode != null){
+                curNode = curNode.nextNode;
+            }
+            else {
+                return null;
+            }
+        }
+    }
+
+
 }
 
 class Node {
@@ -93,10 +109,11 @@ let list = new LinkedList();
 list.append("test");
 list.append("test2");
 list.append("test4");
+list.prepend("test12");
 
 list.size;
 list.first;
 
 list.contains("test");
 
-console.log(list.contains("test5"));
+console.log(list.find("test4"));
