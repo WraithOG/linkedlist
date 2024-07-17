@@ -94,6 +94,23 @@ class LinkedList{
         }
     }
 
+    toString(){
+        let curNode = this.head;
+        let string = "";
+        for (let i = 0; i < this.counter; i++){
+
+            if(curNode.nextNode === null) {
+                string += "(" + curNode.value + ") => (null)";
+            }
+            else {
+                string += "(" + curNode.value + ") => ";
+                curNode = curNode.nextNode;
+            }
+            
+        }
+        return string;
+    }
+
 
 }
 
@@ -116,4 +133,4 @@ list.first;
 
 list.contains("test");
 
-console.log(list.find("test4"));
+console.log(list.toString());
