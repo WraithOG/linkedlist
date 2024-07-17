@@ -135,7 +135,7 @@ class LinkedList{
             this.prepend(value);
             this.counter++;
         }
-        else if (index > this.counter) {
+        else if (index >= this.size) {
             this.append(value);
             this.counter++;
         }
@@ -148,6 +148,27 @@ class LinkedList{
             curNode.nextNode = node;
             node.nextNode = next;
             this.counter++;
+        }
+    }
+
+    removeAt(index) {
+        if(index >= this.size){
+            this.pop();
+        }
+        else if(index === 0){
+            this.pop();
+        }
+        else {
+            let curNode = this.head;
+            for(let i = 0; i < index - 1; i++){
+                curNode = curNode.nextNode;
+            }
+            let prevNode = curNode;
+            let cur = curNode.nextNode;
+            let next = cur.nextNode;
+            cur.nextNode = null;
+            prevNode.nextNode = next;
+            this.counter--;
         }
     }
 
@@ -168,5 +189,8 @@ list.append("test2");
 list.append("test3");
 
 list.insertAt("test", 2);
+list.removeAt(2);
+list.removeAt(1);
+list.removeAt(1);
 
 console.log(list.toString());
