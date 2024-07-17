@@ -64,6 +64,16 @@ class LinkedList{
         return curNode;
     }
 
+    pop(){
+        let curNode = this.head;
+        for(let i = 0; i < this.counter - 2; i++){
+            curNode = curNode.nextNode;
+        }   
+        this.tail = curNode;
+        curNode.nextNode = null;
+        this.counter--;
+    }
+
     contains(value){
         let curNode = this.head;
         for(let i = 0; i < this.counter; i++){
@@ -132,5 +142,5 @@ list.size;
 list.first;
 
 list.contains("test");
-
+console.log(list.pop());
 console.log(list.toString());
