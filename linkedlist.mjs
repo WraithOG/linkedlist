@@ -1,4 +1,4 @@
-class LinkedList{
+export class LinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
@@ -181,16 +181,3 @@ class Node {
         this.nextNode = null;
     }
 }
-
-let list = new LinkedList();
-
-list.append("test");
-list.append("test2");
-list.append("test3");
-
-list.insertAt("test", 2);
-list.removeAt(2);
-list.removeAt(1);
-list.removeAt(1);
-
-console.log(list.toString());
