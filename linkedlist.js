@@ -66,12 +66,20 @@ class LinkedList{
 
     pop(){
         let curNode = this.head;
-        for(let i = 0; i < this.counter - 2; i++){
-            curNode = curNode.nextNode;
-        }   
-        this.tail = curNode;
-        curNode.nextNode = null;
-        this.counter--;
+        if(this.counter <= 2){
+            curNode.nextNode = null;
+            this.tail = null;
+            this.counter--;
+        }
+        else {
+            for(let i = 0; i < this.counter - 2; i++){
+                curNode = curNode.nextNode;
+            }   
+            this.tail = curNode;
+            curNode.nextNode = null;
+            this.counter--;
+        }
+        
     }
 
     contains(value){
@@ -135,8 +143,6 @@ let list = new LinkedList();
 
 list.append("test");
 list.append("test2");
-list.append("test4");
-list.prepend("test12");
 
 list.size;
 list.first;
